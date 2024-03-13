@@ -380,6 +380,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+ -- [[ Set Tab to 4 Spaces ]]
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
  -- [[ Map Moving Between Buffers With BarBar]]
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -766,12 +771,15 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ['<S-Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-M>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
-    ['<C-m>'] = cmp.mapping.complete {},
     ['<Tab>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+
+    ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
