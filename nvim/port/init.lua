@@ -244,7 +244,7 @@ require('lazy').setup({
 })
 
 -- setup must be called before loading
-vim.cmd.colorscheme "gruvbox-material"
+vim.cmd.colorscheme "catppuccin"
     end,
   },
 
@@ -771,7 +771,6 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ['<S-Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-M>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
