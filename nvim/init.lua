@@ -339,6 +339,7 @@ vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+--
  -- [[ Map Moving Between Buffers With BarBar]]
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -393,6 +394,12 @@ vim.keymap.set("n", "<M-l>", "<C-w>l")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("v" , "<Tab>", ">gv")
 vim.keymap.set("v" , "<S-Tab>", "<gv")
+
+
+
+
+
+require("bufferline").setup{}
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 local fb_actions = require "telescope._extensions.file_browser.actions"
@@ -666,6 +673,7 @@ local servers = {
 
   lua_ls = {
     Lua = {
+
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
@@ -757,6 +765,7 @@ cmp.setup {
     --   end
     -- end, { 'i', 's' }),
   },
+
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
