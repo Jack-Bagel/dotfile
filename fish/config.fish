@@ -1,3 +1,8 @@
+
+fish_add_path ~/.sdkman/bin/
+fish_add_path ~/go/bin/
+fish_add_path ~/.local/bin/
+
 if status is-interactive
 and not set -q TMUX
     exec tmux

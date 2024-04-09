@@ -311,7 +311,6 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set( 'v', 'p', '"0p')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -339,51 +338,9 @@ vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
---
- -- [[ Map Moving Between Buffers With BarBar]]
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
 
--- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
--- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
--- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
--- Pin/unpin buffer
-map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
--- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
--- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
+ -- [[ Set Path to Current Directory]]
+vim.keymap.set('n', '<M-d>', ':set autochdir<CR>', opts)
 
  -- [[ Remap Moving Between Windows ]]
 vim.keymap.set("n", "<M-k>", "<C-w>k")
@@ -395,11 +352,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("v" , "<Tab>", ">gv")
 vim.keymap.set("v" , "<S-Tab>", "<gv")
 
-
-
-
-
-require("bufferline").setup{}
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 local fb_actions = require "telescope._extensions.file_browser.actions"
@@ -508,8 +460,9 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<CR><Esc>", { noremap = true })
+vim.keymap.set('n', '<leader>sr', ":Telescope oldfiles<CR><Esc>", { desc = '[S]earch [R]ecent' })
+vim.keymap.set('n', '<leader>b', ":Telescope file_browser<CR><Esc>", { desc = '[B]rowse' })
+-- vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope file_browser<CR><Esc>", { noremap = true })
 -- open file_browser with the path of the current buffer
 vim.api.nvim_set_keymap("n","<space>fp",":Telescope file_browser path=%:p:h select_buffer=true<CR><Esc>",{ noremap = true })
 
@@ -733,7 +686,6 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ['<S-Tab>'] = cmp.mapping.select_next_item(),
-    ['<S-M>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
