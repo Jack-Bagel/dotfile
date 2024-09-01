@@ -339,19 +339,12 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
- -- [[ Set Path to Current Directory]]
+ -- [[ Set Path to Current Directory ]]
 vim.keymap.set('n', '<M-d>', ':set autochdir<CR>', opts)
 
- -- [[ Remap Moving Between Windows ]]
-vim.keymap.set("n", "<M-k>", "<C-w>k")
-vim.keymap.set("t", "<M-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("n", "<M-j>", "<C-w>ji")
-vim.keymap.set("n", "<M-h>", "<C-w>h")
-vim.keymap.set("n", "<M-l>", "<C-w>l")
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k")
+ -- [[ Indent Multiple Lines ]]
 vim.keymap.set("v" , "<Tab>", ">gv")
 vim.keymap.set("v" , "<S-Tab>", "<gv")
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 local fb_actions = require "telescope._extensions.file_browser.actions"
@@ -623,6 +616,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  glslls = {filetypes = {'vert', 'frag', 'tesc', 'tese', 'geom', 'comp'} }, -- Doesn't seem to work
 
   lua_ls = {
     Lua = {
