@@ -12,7 +12,7 @@ return {
 
               -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
               animation = false,
-              auto_hide = 2,
+              auto_hide = 1,
                 icons = {
                     -- Configure the base icons on the bufferline.
                     -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'

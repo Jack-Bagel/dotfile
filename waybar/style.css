@@ -1,241 +1,182 @@
+@import "colors.css";
+
+@define-color text_color @text;
+
+/* uncomment it for use pywal script*/
+/*
+@import "/home/divan/.cache/wal/waybar.css";
+@define-color text_color @maxY;
+*/
+
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    min-height: 0;
+	border: none;
+	border-radius: 0;
+	font-family: "Noto Nerd Font";
+	font-size: 17px;
+	min-height: 1em;
 }
 
 window#waybar {
-    background: #c0c0c0;
-    color: #000000;
-    box-shadow: 0px 0px 3px 0px #00000;
-    border-bottom: solid 1px #404040;
-}
-
-#workspaces button {
-    padding: 2px 5px;
-    margin: 5px 3px;
-    background: #c0c0c0;
-    color: #000000;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-
-}
-
-#workspaces button:hover {
-    box-shadow: 0px 0px 0px;
-    text-shadow: none;
-    background: #E0E0E0;
-}
-
-#workspaces button.visible {
-	color: #000000;
-	background: #E0E0E0;
-}
-
-#workspaces button.focused {
-    color: #000000;
-    background: #ada810;
-}
-
-#workspaces button.urgent {
-	color: #000000;
-	background: #ada810;
-}
-
-#custom-start {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    font-weight: bold;
-    background: url('~/.icons/SE98/');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-}
-
-#custom-start:hover {
-    background: url('~/.icons/SE98/');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    box-shadow: 0px 0px 0px;
-    text-shadow: none;
-}
-
-#custom-start:active {
-    background: url('~/.icons/SE98/');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    box-shadow: 0px 0px 0px;
-    text-shadow: none;
-    background-color: #f0f0f0;
+	background: transparent;
+	color: @text_color;
 }
 
 #window {
-    padding: 2px 3px;
-    margin: 5px 3px;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
+	font-weight: bold;
+	font-family: "Noto";
 }
 
-#battery {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+.modules-left {
+	background: @base;
+	/* background: transparent; */
 }
 
-#backlight {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+.modules-right {
+	background: transparent;
+	border-radius: 0.5em;
+	margin-right: -0.5em;
+	padding: 0 0.5em;
 }
 
-#wireplumber {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+.modules-center {
+	background: transparent;
+	border-radius: 0.5em;
+	margin-right: 0.25em;
+	margin-left: 0.25em;
+	padding: 0 0.5em;
 }
 
-#pulseaudio {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+#power {
+	background: @surface0;
+	border-radius: 0.5em;
+	margin-left: 0.15em;
+	padding-right: 0.5em;
+	margin-right: -0.5em;
+	color: @red;
 }
 
-#memory {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+#custom-reboot {
+	color: @flamingo
 }
 
-#cpu {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+#custom-exit {
+	color: @peach
 }
 
-#temperature {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #c0c0c0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 1px solid #ffffff;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #404040;
-    box-shadow: 1px 1px 1px 0px #000000;
-    background-image: url('~/.icons/SE98/');
-    background-position: right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+
+#custom-lock {
+	color: @flamingo
+}
+
+#workspaces button {
+	padding: 0 0.25em;
+	background: transparent;
+	color: @text_color;
+	margin-left: -0.2em;
+	margin-right: 0.1em;
+}
+
+#workspaces button.focused {
+	color: @text_color;
+	font-weight: bold;
+}
+
+#workspaces button.active {
+	color: @text;
+	font-weight: bold;
+}
+
+#workspaces button.urgent {
+	color: @red;
+	font-weight: bold;
 }
 
 #clock {
-    padding: 2px 2px;
-    margin: 5px 3px;
-    background-color: #b0b0b0;
-    color: #000000;
-    font-family: "Sans Serif", "Font Awesome 5 Free";
-    font-size: medium;
-    border-left: 0.5px solid #000000;
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
-    box-shadow: -1px -0.5px 0px 0px #000000;
-    background-image: url("~/.icons/SE98/apps/scalable/clock.svg");
-    background-position: right;
-    background-size: 13%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+	color: @text_color;
+	padding: 0 0.3em;
+	margin-left: -0.4em;
 }
 
-/*#battery button:hover,*/
+#pulseaudio.mic{
+	color: @text_color;
+	margin-left: 0.3em;
+	margin-right: -0.3em;
+}
+#pulseaudio.mic.source-muted{
+	color: @red;
+	margin-left: 0em;
+	margin-right: 0em;
+}
 
-/*#pulseaudio:hover {
-    background-color: #E0E0E0;
-    box-shadow: 0px 0px 0px;
-}*/
+#language, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
+	padding: 0 0.15em;
+	margin: 0 0.15em;
+}
+
+#battery {
+}
+
+#battery icon {
+	color: @red;
+}
+
+@keyframes critical {
+	to {
+		color: @red;
+	}
+}
+@keyframes good {
+	to {
+		color: @text;
+	}
+}
+
+#battery.charging {
+	color: @text_color;
+	animation-name: good;
+	animation-duration: 3.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+	color: @text_color;
+	animation-name: critical;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+	color: @text_color;
+	animation-name: critical;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#network {
+}
+
+#network.disconnected {
+	color: @red;
+}
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+}
+
+#tray {
+}
