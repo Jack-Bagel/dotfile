@@ -5,7 +5,7 @@
 	// Bar height is based on the css font size. Don't forget to change the tray icon size!
 	// "width": 1366, // Waybar width
 	// Choose the order of the modules
-	"modules-left": ["hyprland/workspaces", "pulseaudio", "battery", "clock", "tray"],
+	"modules-left": ["hyprland/workspaces", "pulseaudio", "battery", "clock", "tray","custom/power_profile", "custom/fullscreen"],
 	"modules-right": [],
 	"modules-center": [],
 
@@ -147,5 +147,19 @@
 		"format": "  ",
 		"tooltip": false,
 		"on-click": "bash ~/.config/waybar/scripts/confirm.sh \"shutdown now\""
-	}
+	},
+    "custom/power_profile": {
+        "exec": "printf '%s\\n%s' \"$(powerprofilesctl get | sed 's/performance/󰨢/;s/balanced/󰝍/;s/power-saver/󰝎/')\" \"$(powerprofilesctl get)\"",
+        "tooltip": true,
+        "interval": 60,
+        "on-click": "powerprofilesctl set power-saver && pkill -RTMIN+8 waybar",
+        "on-click-right": "powerprofilesctl set balanced && pkill -RTMIN+8 waybar",
+        "on-click-middle": "powerprofilesctl set performance && pkill -RTMIN+8 waybar",
+        "signal": 8
+    },
+    "custom/fullscreen": {
+    "exec": "~/.config/waybar/scripts/fullscreen_status.sh",
+	"format": "",
+    "interval": 1,
+    },
 }

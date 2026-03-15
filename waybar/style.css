@@ -159,6 +159,11 @@ window#waybar {
 	animation-direction: alternate;
 }
 
+#custom-power_profile {
+    padding: 0 0.5em;
+    margin: 0 0.15em;
+}
+
 #cpu {
 }
 

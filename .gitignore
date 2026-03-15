@@ -1,0 +1,42 @@
+# Ignore everything
+*
+
+# But not directories themselves
+!*/
+
+# Whitelisted folders
+!hypr/
+hypr/**
+!hypr/**/
+!hypr/**/*
+
+!kitty/
+kitty/**
+!kitty/**/
+!kitty/**/*
+
+!nvim/
+nvim/**
+!nvim/**/
+!nvim/**/*
+
+!waybar/
+waybar/**
+!waybar/**/
+!waybar/**/*
+
+!waypaper/
+waypaper/**
+!waypaper/**/
+!waypaper/**/*
+
+!rofi/
+rofi/**
+!rofi/**/
+!rofi/**/*
+
+# Whitelisted root files
+!/README.md
+!/LICENSE
+!install.sh
+!.gitignore
