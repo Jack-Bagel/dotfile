@@ -1,0 +1,39 @@
+[global]
+# Display
+monitor = 1
+origin = top-right
+offset = (15, 25)
+width = 300
+height = 100
+gap_size = 5
+notification_limit = 5
+
+# Appearance
+font = "Mononoki Nerd Font 11"
+frame_width = 1
+separator_color = frame
+corner_radius = 12
+corners = top-left,bottom
+progress_bar_corner_radius = 8
+progress_bar_corners = top-left,bottom-right
+
+# Urgencies
+[urgency_low]
+timeout = 3
+
+[urgency_normal]
+timeout = 5
+
+[urgency_critical]
+timeout = 0
+
+# Block everything by default
+[default_skip]
+summary = "*"
+skip_display = true
+
+# Whitelist
+[battery]
+appname = "battery-notify"
+skip_display = false
+

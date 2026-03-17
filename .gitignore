@@ -35,6 +35,11 @@ rofi/**
 !rofi/**/
 !rofi/**/*
 
+!dunst/
+dunst/**
+!dunst/**/
+!dunst/**/*
+
 # Whitelisted root files
 !/README.md
 !/LICENSE
