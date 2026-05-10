@@ -25,11 +25,6 @@ waybar/**
 !waybar/**/
 !waybar/**/*
 
-!waypaper/
-waypaper/**
-!waypaper/**/
-!waypaper/**/*
-
 !Wallpapers/
 Wallpapers/**
 !Wallpapers/**/
