@@ -4,7 +4,20 @@ return {
       lazy = false,
       config = function()
         require("themery").setup({
-            themes = {"gruvbox", "melange"}, -- Your list of installed colorschemes.
+            themes = {
+                    {
+                        name = "gruvbox black",
+                        colorscheme = "gruvbox",
+                        before = [[vim.opt.background = "dark"]]
+                    }, 
+                    {
+                        name = "gruvbox light",
+                        colorscheme = "gruvbox",
+                        before = [[vim.opt.background = "light"]]
+                    }, 
+
+
+                    "melange"}, -- Your list of installed colorschemes.
             livePreview = true, -- Apply theme while picking. Default to true.
         })
       end

@@ -30,10 +30,20 @@ waypaper/**
 !waypaper/**/
 !waypaper/**/*
 
+!Wallpapers/
+Wallpapers/**
+!Wallpapers/**/
+!Wallpapers/**/*
+
 !rofi/
 rofi/**
 !rofi/**/
 !rofi/**/*
+
+!ly/
+ly/**
+!ly/**/
+!ly/**/*
 
 !dunst/
 dunst/**
@@ -43,5 +53,6 @@ dunst/**
 # Whitelisted root files
 !/README.md
 !/LICENSE
+!tlp.conf
 !install.sh
 !.gitignore

@@ -1,18 +1,21 @@
 #!/bin/sh
-
 down() {
-brightnessctl specific 13-
-brightness=$(light -g)
-dunstify -a "BRIGHTNESS" "Decreasing to $brightness%" -h int:value:"$brightness" -i ~/.config/dunst/assets/ui/brightness-low.svg -r 2593 -u normal
+    brightnessctl set 13%-
+    brightness=$(brightnessctl get)
+    max=$(brightnessctl max)
+    percent=$(( brightness * 100 / max ))
+    dunstify -a "BRIGHTNESS" "Decreasing to $percent%" -h int:value:"$percent" \
+        -i ~/.config/dunst/assets/ui/brightness-low.svg -r 2593 -u normal
 }
-
 up() {
-brightnessctl specific +13
-brightness=$(light -g)
-dunstify -a "BRIGHTNESS" "Increasing to $brightness%" -h int:value:"$brightness" -i ~/.config/dunst/assets/ui/brightness-high.svg -r 2593 -u normal
+    brightnessctl set +13%
+    brightness=$(brightnessctl get)
+    max=$(brightnessctl max)
+    percent=$(( brightness * 100 / max ))
+    dunstify -a "BRIGHTNESS" "Increasing to $percent%" -h int:value:"$percent" \
+        -i ~/.config/dunst/assets/ui/brightness-high.svg -r 2593 -u normal
 }
-
 case "$1" in
-  up) up;;
-  down) down;;
+    up) up ;;
+    down) down ;;
 esac
